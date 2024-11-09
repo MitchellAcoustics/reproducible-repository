@@ -6,5 +6,12 @@
 
 /agujournal2019.cls
 /trackchanges.sty
+/elsarticle.cls
+/elsarticle-harv.bst
+*.spl
 
 /.luarc.json
+
+site_libs
+_freeze
+.venv

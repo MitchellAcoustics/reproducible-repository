@@ -1,0 +1,25 @@
+name: Build Notebook Container
+on: 
+  - workflow_dispatch
+  - page_build # You may want to trigger this Action on other things than a push.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: checkout files in repo
+      uses: actions/checkout@main
+
+    - name: setup image name
+      run: |
+        echo "repo_name=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV # Convert to lowercase
+
+    - name: cache on binderhub
+      uses: jupyterhub/repo2docker-action@master
+      with:
+        IMAGE_NAME: ${{ env.repo_name }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        BINDER_CACHE: true
+        PUBLIC_REGISTRY_CHECK: true
