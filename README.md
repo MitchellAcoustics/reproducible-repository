@@ -89,7 +89,7 @@ See more info from `repo2docker` [here](https://repo2docker.readthedocs.io/en/la
 
 #### Quarto
 
-Quarto is installed using a `postBuild` script provided by `quarto use binder`^[This command has already been run for this repo. If you are inclined to remove binder compatibility or change the setup, feel free.]. This script is run after the environment has been built and installs Quarto. You can modify this script to install additional dependencies if needed.
+Quarto is installed using a `postBuild`^[For some reason, the default `postBuild` script includes `bash -v` at the top - the `-v` throws an error for `repo2docker` so it has been removed. Still seems to work though!] script provided by `quarto use binder`^[This command has already been run for this repo. If you are inclined to remove binder compatibility or change the setup, feel free.]. This script is run after the environment has been built and installs Quarto. You can modify this script to install additional dependencies if needed.
 
 ### Custom Domain
 
