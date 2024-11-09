@@ -4,6 +4,9 @@ on:
   - push
   # - page_build # You may want to trigger this Action on other things than a push.
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
