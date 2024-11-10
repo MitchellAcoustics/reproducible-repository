@@ -15,3 +15,5 @@
 site_libs
 _freeze
 .venv
+
+.TinyTeX
